@@ -62,7 +62,8 @@ var tests = []struct {
 var nullLogger = log.New(ioutil.Discard, "", 0)
 
 func tableSchema(db *sql.DB, table string) (columnSchemas map[string]columnSchema, err error) {
-	ignore := []byte{}
+  var ignore interface{}
+
 	columnSchemas = make(map[string]columnSchema)
 
 	rows, err := db.Query(fmt.Sprintf("PRAGMA table_info(%s)", table))
