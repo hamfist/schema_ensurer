@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	_ "code.google.com/p/gosqlite/sqlite3"
-	"github.com/modcloth/schema_ensurer"
+	"github.com/modcloth-labs/schema_ensurer"
 )
 
 type columnSchema struct {
