@@ -62,7 +62,7 @@ var tests = []struct {
 var nullLogger = log.New(ioutil.Discard, "", 0)
 
 func tableSchema(db *sql.DB, table string) (columnSchemas map[string]columnSchema, err error) {
-  var ignore interface{}
+	var ignore interface{}
 
 	columnSchemas = make(map[string]columnSchema)
 

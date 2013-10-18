@@ -7,19 +7,19 @@ package sensurer
 import (
 	"database/sql"
 	"log"
-  "sort"
+	"sort"
 )
 
 type SchemaEnsurer struct {
-  //Database connection
-	DB         *sql.DB
+	//Database connection
+	DB *sql.DB
 
-  //Keys should be labels for the migrations (will be executed in alphanumeric order)
-  //Values should be an array of SQL statements
-	Migrations map[string][]string 
+	//Keys should be labels for the migrations (will be executed in alphanumeric order)
+	//Values should be an array of SQL statements
+	Migrations map[string][]string
 
-  //Logger to log debug statements to (the migrations being executed)
-	Log        *log.Logger
+	//Logger to log debug statements to (the migrations being executed)
+	Log *log.Logger
 }
 
 //New returns a new SchemaEnsurer struct initialized with the given db,
@@ -48,8 +48,8 @@ func (me *SchemaEnsurer) ensureMigrationsTable() error {
 	return err
 }
 
-func (me *SchemaEnsurer) migrationLabels() (labels []string){
-  labels = make([]string, len(me.Migrations))
+func (me *SchemaEnsurer) migrationLabels() (labels []string) {
+	labels = make([]string, len(me.Migrations))
 
 	var i int
 	for label, _ := range me.Migrations {
@@ -63,7 +63,7 @@ func (me *SchemaEnsurer) migrationLabels() (labels []string){
 }
 
 func (me *SchemaEnsurer) runMigrations() error {
-  for _, schemaVersion := range me.migrationLabels() {
+	for _, schemaVersion := range me.migrationLabels() {
 		if me.containsMigration(schemaVersion) {
 			continue
 		}
