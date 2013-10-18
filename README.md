@@ -17,4 +17,6 @@ Inquiries can be directed to: github+schema_ensurer@modcloth.com
 
 Requires SQLite3 header files to be present for testing.
 
+Requires gosqlite package for testing (`go get -v code.google.com/p/gosqlite/sqlite3`)
+
 Test via `go test github.com/modcloth-labs/schema_ensurer`.
