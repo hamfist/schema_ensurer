@@ -1,0 +1,10 @@
+---
+language: go
+go:
+- 1.0
+- 1.1
+- 1.1.1
+notifications:
+  email:
+    recipients:
+    - github+schema_ensurer@modcloth.com
